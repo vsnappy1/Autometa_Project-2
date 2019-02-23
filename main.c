@@ -23,7 +23,7 @@ int main()
 
     printf("Enter String : ");                  //Take string input
     scanf("%s",str1);
-    printf("\n");
+    printf("\nTokens : ");
     for(i=0;i<strlen(str1) ;)                   //This is the main loop which run till length of string
         {
             firstCharOfString=str1[i];          //firstCharOfString contains first character of token
