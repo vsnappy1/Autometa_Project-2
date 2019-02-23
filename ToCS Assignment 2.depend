@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1550776980 source:c:\users\vishal kumar\documents\assignments\tocs assignment 2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
