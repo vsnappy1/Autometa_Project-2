@@ -2,26 +2,40 @@
 #include <stdlib.h>
 #include <string.h>
 
+//Vishal B16101182 Assignment-2
+//Objective: Write a program which takes a valid Alphabet input and a string and check whether string is accepted for Alphabet or not
+
 char firstChar(char A[]){                       //This returns the first character of a string
     return A[0];
 }
 int main()
 {
-    int i,j,k,l,n,lengthS,isTrue=1,check1=1;
-    char str1[20], temp[10], firstCharOfString, firstCharOfLetter;
-    printf("Enter Number of characters : ");	//These lines of code take number of characters in Alphabet
-    scanf("%d",&n);
-    printf("\n");
+    int i=0,j,k,l,n,lengthS,isTrue=1,check1=1;
+    char str1[50], temp[10], firstCharOfString, firstCharOfLetter;
 
-    char *A[n];
-    printf("Enter Valid Alphabet = \n{ \n");
-    for(i=0;i<n;i++){                   		 //this loop fills the array with letters
-        A[i]=(char*)malloc(n);
-        scanf("%s",A[i]);
+    printf("Enter Valid Alphabet = { ");
+	scanf("%s",str1);					        //this takes string input Alphabet seperated by ,
+	int count=1;
+
+	for( j=0;j<strlen(str1);j++){		        //This counts the number of elements in Alphabet
+		if(str1[j]==','){
+			count++;
+		}
+	}
+	n=count;
+
+	// Returns first token
+    char* token = strtok(str1, ",");
+
+  	char *A[n];
+    while (token != NULL) { 				    //This fills the array with elements
+    	A[i]=(char*)malloc(10);
+    	strcpy (A[i], token);
+        token = strtok(NULL, ",");
+        i++;
     }
-    printf("}\n\n");
 
-    printf("Enter String : ");                  //Take string input
+    printf("\nEnter Valid String : ");          //Take string input
     scanf("%s",str1);
     printf("\nTokens : ");
     for(i=0;i<strlen(str1) ;)                   //This is the main loop which run till length of string
@@ -50,7 +64,6 @@ int main()
                         isTrue=0;
                         break;
                     }
-
                 }
             }
             check1=1;
@@ -64,6 +77,8 @@ int main()
     else
         printf("Invalid String");
     printf("\n\n");
+
+
 
     return 0;
 }
